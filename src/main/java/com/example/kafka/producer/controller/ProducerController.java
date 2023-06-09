@@ -4,12 +4,9 @@ import com.example.kafka.producer.dto.Product;
 import com.example.kafka.producer.service.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("producer")
 public class ProducerController {
 
@@ -26,10 +23,8 @@ public class ProducerController {
 
     @PostMapping
     public Product sendProductMessage(@RequestBody Product message){
-
         producerService.send(message);
         return message;
-
     }
 
 
